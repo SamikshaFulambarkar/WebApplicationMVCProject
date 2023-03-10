@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>
+    @ViewData["message"]
+</h1>
+@if(ViewData["Colors"]!=null)
+{
+    <ol>
+        @foreach(string s in(IEnumerable<string>)ViewData["Colors"])
+        {
+            <li>
+                @s
+            </li>
+        }
+    </ol>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Price</th>
+    </tr>
+    @foreach (Product p in (IEnumerable<Product>)ViewData["ProductList"])
+    {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Name</td>
+            <td>@p.Price</td>
+        </tr>
+    }
+</table>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Salary</th>
+        <th>Department Name</th>
+    </tr>
+    @foreach (EmployeeData e in (IEnumerable<EmployeeData>)ViewData["EmployeeList"])
+    {
+        <tr>
+            <td>@e.Id</td>
+            <td>@e.Name</td>
+            <td>@e.Salary</td>
+            <td>@e.Dept_Name</td>
+        </tr>
+    }
+</table>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Roll No</th>
+        <th>Student Name</th>
+        <th>Class Division</th>
+        <th>Percentage</th>
+    </tr>
+    @foreach (StudentData s in (IEnumerable<StudentData>)ViewData["StudentList"])
+    {
+            <tr>
+                <td>@s.Roll_No</td>
+                <td>@s.Name</td>
+                <td>@s.Class</td>
+                <td>@s.Percent</td>
+            </tr>
+    }
+</table>
+
